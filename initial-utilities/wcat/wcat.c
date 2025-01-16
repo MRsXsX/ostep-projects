@@ -1,16 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc, char** argv){
-    if(argc!=2){
-        printf("2 args pls\n");
-        exit(1);
+    if(argc<2){
+        exit(0);
     }
-    printf("%s",argv[1]);
-    FILE *file = fopen(argv[1],"r"); 
+    for(int i=1;i<argc;i++){
+    FILE *file = fopen(argv[i],"r"); 
+    if(file==NULL){
+    printf("wcat: cannot open file\n");
+	    return(1);
+
+
+    }
     char *buf;
-    while((fgets(buf,100,file))!=NULL){
+    buf = (char*) malloc(100);
+    while((fgets(buf,sizeof(buf),file))!=NULL){
         printf("%s",buf);
     } 
-    fclose(file);
+    fclose(file);}
+
     return 0;
 }
