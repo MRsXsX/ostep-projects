@@ -8,29 +8,6 @@ if (argc==1){
 printf("wgrep: searchterm [file ...]\n");
 return 1;
 }
-if(argc==100){
-char * buf = (char*) malloc(100);
-char* n;
-while((n=fgets(buf,sizeof(buf),stdin))){
-size_t i=0;
-        for(int j=0;j<sizeof(buf);j++){
-                if(i==strlen(argv[1])){
-                        printf("%s",buf);
-                        i=0;
-                        break;
-                        }
-                else if(argv[1][i]==buf[j]){
-                //      printf("%d\n",j);
-                        i++;
-                }
-                else {
-                        i=0;
-                }
-
-        }
-
-return 0;
-}
 
 
 }
